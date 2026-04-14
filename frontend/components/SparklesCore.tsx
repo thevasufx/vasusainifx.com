@@ -185,7 +185,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 },
                 decay: 0,
                 distance: {},
-                direction: moveDirection || "none",
+                direction: (moveDirection as any) || "none",
                 drift: 0,
                 enable: true,
                 gravity: {

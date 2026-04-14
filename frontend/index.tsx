@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import type { ReactNode } from 'react';
 import App from './App';
 import '@google/model-viewer';
 
