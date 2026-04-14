@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+vasusainifx.com/
 
 # Editor directories and files
 .vscode/*
