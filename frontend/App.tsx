@@ -227,13 +227,13 @@ const App: React.FC = () => {
                   moveDirection="top"
                 />
                 <model-viewer
-                  src="/groot.glb/scene.gltf"
+                  src={`${import.meta.env.BASE_URL}groot.glb/scene.gltf`}
                   auto-rotate
                   camera-controls
                   disable-zoom
                   exposure="1.8"
                   shadow-intensity="0.85"
-                  poster="/header-bg.jpg"
+                  poster={`${import.meta.env.BASE_URL}header-bg.jpg`}
                   className="relative z-10 h-full w-full"
                   style={{ filter: 'saturate(1.45) contrast(1.12) brightness(1.12) drop-shadow(0 18px 30px rgba(255,255,255,0.08))' }}
                 ></model-viewer>
