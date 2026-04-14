@@ -1,0 +1,38 @@
+{
+  "name": "elite-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "vite frontend -c frontend/vite.config.ts",
+    "dev:backend": "node --watch backend/server.js",
+    "build": "vite build frontend -c frontend/vite.config.ts",
+    "preview": "vite preview frontend -c frontend/vite.config.ts",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.41.0",
+    "@google/model-viewer": "^4.2.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "framer-motion": "^12.38.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "recharts": "^3.7.0",
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.2.1",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
