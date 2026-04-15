@@ -122,19 +122,3 @@ export function AIChat() {
     </div>
   );
 }
-          <button
-            type="button"
-            onClick={() => void send()}
-            disabled={!draft.trim() || isSending}
-            className="px-5 py-3 rounded-2xl bg-amber-500 text-gray-900 text-sm font-extrabold tracking-wide disabled:opacity-40 disabled:cursor-not-allowed hover:bg-amber-400 transition-all"
-          >
-            {isSending ? "…" : "Send"}
-          </button>
-        </div>
-        <div className="mt-2 text-[11px] text-gray-500">
-          Press Enter to send, Shift+Enter for a new line.
-        </div>
-      </div>
-    </div>
-  );
-}
