@@ -27,27 +27,29 @@ export function SkillChart() {
     grade: m.grade,
   }));
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div className="glass-panel rounded-3xl border border-gray-700 p-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+      <div className="glass-panel rounded-2xl md:rounded-3xl border border-gray-700 p-4 md:p-6">
         <div className="flex items-baseline justify-between mb-4">
-          <h3 className="text-lg font-black text-gray-100">Skill Radar</h3>
+          <h3 className="text-base md:text-lg font-black text-gray-100">Skill Radar</h3>
           <span className="text-xs text-gray-400 uppercase tracking-widest">
             0–100
           </span>
         </div>
-        <div className="h-72">
+        <div className="h-56 md:h-72">
           <ResponsiveContainer width="100%" height="100%">
             <RadarChart data={skillData}>
               <PolarGrid stroke="rgba(156, 163, 175, 0.25)" />
               <PolarAngleAxis
                 dataKey="name"
-                tick={{ fill: "#cbd5e1", fontSize: 11 }}
+                tick={{ fill: "#cbd5e1", fontSize: isMobile ? 9 : 11 }}
               />
               <PolarRadiusAxis
                 angle={30}
                 domain={[0, 100]}
-                tick={{ fill: "#9ca3af", fontSize: 10 }}
+                tick={{ fill: "#9ca3af", fontSize: isMobile ? 8 : 10 }}
               />
               <Radar
                 name="Level"
@@ -69,28 +71,28 @@ export function SkillChart() {
         </div>
       </div>
 
-      <div className="glass-panel rounded-3xl border border-gray-700 p-6">
+      <div className="glass-panel rounded-2xl md:rounded-3xl border border-gray-700 p-4 md:p-6">
         <div className="flex items-baseline justify-between mb-4">
-          <h3 className="text-lg font-black text-gray-100">
+          <h3 className="text-base md:text-lg font-black text-gray-100">
             Academic Metrics
           </h3>
           <span className="text-xs text-gray-400 uppercase tracking-widest">
             Score
           </span>
         </div>
-        <div className="h-72">
+        <div className="h-56 md:h-72">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={academicData} margin={{ left: 6, right: 10 }}>
+            <BarChart data={academicData} margin={{ left: isMobile ? 0 : 6, right: isMobile ? 0 : 10 }}>
               <CartesianGrid stroke="rgba(156, 163, 175, 0.15)" />
               <XAxis
                 dataKey="subject"
-                tick={{ fill: "#cbd5e1", fontSize: 11 }}
+                tick={{ fill: "#cbd5e1", fontSize: isMobile ? 9 : 11 }}
                 axisLine={{ stroke: "rgba(156, 163, 175, 0.25)" }}
                 tickLine={{ stroke: "rgba(156, 163, 175, 0.25)" }}
               />
               <YAxis
                 domain={[0, 100]}
-                tick={{ fill: "#9ca3af", fontSize: 11 }}
+                tick={{ fill: "#9ca3af", fontSize: isMobile ? 8 : 11 }}
                 axisLine={{ stroke: "rgba(156, 163, 175, 0.25)" }}
                 tickLine={{ stroke: "rgba(156, 163, 175, 0.25)" }}
               />

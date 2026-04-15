@@ -52,10 +52,10 @@ export function AIChat() {
   };
 
   return (
-    <div className="glass-panel rounded-3xl border border-gray-700 overflow-hidden shadow-2xl">
-      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+    <div className="glass-panel rounded-2xl md:rounded-3xl border border-gray-700 overflow-hidden shadow-2xl h-full md:h-auto">
+      <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b border-gray-700">
         <div>
-          <div className="text-sm font-extrabold tracking-widest text-amber-300 uppercase">
+          <div className="text-xs md:text-sm font-extrabold tracking-widest text-amber-300 uppercase">
             Digital Twin
           </div>
           <div className="text-xs text-gray-400">Backend chat API</div>
@@ -73,17 +73,17 @@ export function AIChat() {
         />
       </div>
 
-      <div className="h-[420px] overflow-y-auto px-5 py-4 space-y-3">
+      <div className="h-[320px] md:h-[420px] overflow-y-auto px-4 md:px-5 py-3 md:py-4 space-y-3">
         {messages.map((m, i) => (
           <div
             key={i}
             className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow ${
+              className={`max-w-[85%] rounded-lg md:rounded-2xl px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm leading-relaxed shadow ${
                 m.role === "user"
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-900/70 text-gray-100 border border-gray-700"
+                  ? "bg-blue-600 text-white break-words"
+                  : "bg-gray-900/70 text-gray-100 border border-gray-700 break-words"
               }`}
             >
               {m.content}
@@ -93,8 +93,8 @@ export function AIChat() {
         <div ref={bottomRef} />
       </div>
 
-      <div className="border-t border-gray-700 p-4">
-        <div className="flex items-end gap-3">
+      <div className="border-t border-gray-700 p-3 md:p-4">
+        <div className="flex items-end gap-2 md:gap-3">
           <textarea
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
@@ -106,8 +106,22 @@ export function AIChat() {
             }}
             placeholder="Type a message…"
             rows={2}
-            className="w-full resize-none rounded-2xl bg-black/40 border border-gray-700 px-4 py-3 text-sm text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60"
+            className="w-full resize-none rounded-lg md:rounded-2xl bg-black/40 border border-gray-700 px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60"
           />
+          <button
+            onClick={() => void send()}
+            disabled={isSending}
+            className="flex-shrink-0 px-3 md:px-4 py-2 md:py-3 bg-blue-600 rounded-lg md:rounded-xl text-white font-semibold text-xs md:text-sm hover:bg-blue-500 disabled:opacity-50 transition-colors active:scale-95 min-h-[36px] md:min-h-[44px] touch-manipulation"
+          >
+            <svg className="w-4 md:w-5 h-4 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
           <button
             type="button"
             onClick={() => void send()}
