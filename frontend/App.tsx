@@ -249,7 +249,7 @@ const App: React.FC = () => {
                   className="rounded-full p-0 shadow-none"
                 >
                   <a
-                    href="/vasu-resume.pdf"
+                    href={`${import.meta.env.BASE_URL}vasu-resume.pdf`}
                     target="_blank"
                     rel="noreferrer"
                     className="px-4 md:px-6 py-2 md:py-3 text-gray-100 rounded-full text-xs md:text-sm font-semibold transition-all flex items-center hover:scale-105 active:scale-95"
@@ -343,7 +343,7 @@ const App: React.FC = () => {
                   <img src={proj.image} alt={proj.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 md:p-6">
                     <a
-                      href={idx === 0 ? '/jarvis-project.pdf' : proj.link}
+                      href={idx === 0 ? `${import.meta.env.BASE_URL}jarvis-project.pdf` : proj.link}
                       target={idx === 0 ? '_blank' : undefined}
                       rel={idx === 0 ? 'noreferrer' : undefined}
                       className="px-3 md:px-4 py-1.5 md:py-2 bg-gray-900 text-gray-100 rounded-lg text-xs md:text-sm font-bold shadow-lg hover:bg-gray-800 transition-colors active:scale-95 touch-manipulation"
@@ -398,7 +398,7 @@ const App: React.FC = () => {
               </div>
               {cert.link && (
                 <a
-                  href={cert.link}
+                  href={`${import.meta.env.BASE_URL}${cert.link.replace(/^\//, '')}`}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-block text-xs md:text-sm font-semibold text-blue-400 hover:text-blue-300 active:scale-95"
